@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>پلت فرم گفت و گو و بحث</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="dist/media/img/favicon.png" type="image/png">
+
+    <!-- Soho css -->
+    <link rel="stylesheet" href="dist/css/soho.min.css">
+</head>
+<body class="rtl">
+
+<!-- page loading -->
+<div class="page-loading"></div>
+<!-- ./ page loading -->
+
+<!-- disconnected modal -->
+<div class="modal fade" id="disconnected" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-zoom" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="connection-error">
+                    <h4 class="text-center">برنامه قطع شد...</h4>
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                         y="0px"
+                         width="862.899px" height="862.9px" viewBox="0 0 862.899 862.9" style="enable-background:new 0 0 862.899 862.9;"
+                         xml:space="preserve">
+                        <g>
+                            <g>
+                                <circle cx="385.6" cy="656.1" r="79.8"/>
+                                <path d="M561.7,401c-15.801-10.3-32.601-19.2-50.2-26.6c-39.9-16.9-82.3-25.5-126-25.5c-44.601,0-87.9,8.9-128.6,26.6
+                                    c-39.3,17-74.3,41.3-104.1,72.2L253.5,545c34.899-36.1,81.8-56,132-56c49,0,95.1,19.1,129.8,53.8l25.4-25.399L493,469.7L561.7,401
+                                    z"/>
+                                <path d="M385.6,267.1c107.601,0,208.9,41.7,285.3,117.4l98.5-99.5c-50-49.5-108.1-88.4-172.699-115.6
+                                    c-66.9-28.1-138-42.4-211.101-42.4c-73.6,0-145,14.4-212.3,42.9c-65,27.5-123.3,66.8-173.3,116.9l99,99
+                                    C175.5,309.299,277.3,267.1,385.6,267.1z"/>
+                                <polygon points="616.8,402.5 549.7,469.599 639.2,559.099 549.7,648.599 616.8,715.7 706.3,626.2 795.8,715.7 862.899,648.599
+                                    773.399,559.099 862.899,469.599 795.8,402.5 706.3,492 		"/>
+                            </g>
+                        </g>
+                        <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                    </svg>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg">دوباره وصل کنید</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ./ disconnected modal -->
+
+
+<!-- layout -->
+<div class="layout">
+
+
+    <!-- content -->
+    <div class="content">
+
+        <!-- sidebar group -->
+        <div class="sidebar-group">
+
+            <!-- Chats sidebar -->
+            <div id="chats" class="sidebar active">
+                <header>
+                    <span>چت ها</span>
+                    <ul class="list-inline" style="display:none ;">
+                        <li class="list-inline-item" data-toggle="tooltip" title="گروه جدید" >
+                            <a class="btn btn-light" href="#" data-toggle="modal" data-target="#newGroup">
+                                <i class="fa fa-users"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn btn-light" data-toggle="tooltip" title="چت جدید" href="#" data-navigation-target="friends">
+                                <i class="ti-comment-alt"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item d-lg-none d-sm-block">
+                            <a href="#" class="btn btn-light sidebar-close">
+                                <i class="ti-close"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </header>
+                <form action="#">
+                    <input type="text" class="form-control" placeholder="جستجوی چت">
+                </form>
+                <div class="sidebar-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <figure class="avatar avatar-state-success">
+                                <img src="dist/media/img/man_avatar1.jpg" class="rounded-circle">
+                            </figure>
+                            <div class="users-list-body">
+                                <h5>جعفر عباسی</h5>
+                                <p>اختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <div class="users-list-action">
+                                    <div class="new-message-count">2</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item open-chat">
+                            <div>
+                                <figure class="avatar">
+                                    <img src="dist/media/img/man_avatar3.jpg" class="rounded-circle">
+                                </figure>
+                            </div>
+                            <div class="users-list-body">
+                                <h5>طاهر نصیری</h5>
+                                <p>اختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <div class="users-list-action action-toggle">
+                                    <div class="dropdown">
+                                        <a data-toggle="dropdown" href="#">
+                                            <i class="ti-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item">باز</a>
+                                            <a href="#" data-navigation-target="contact-information" class="dropdown-item">پروفایل</a>
+                                            <a href="#" class="dropdown-item">اضافه کردن به بایگانی</a>
+                                            <a href="#" class="dropdown-item">حذف</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="avatar-group">
+                                <figure class="avatar">
+                                    <span class="avatar-title bg-warning bg-success rounded-circle">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                </figure>
+                            </div>
+                            <div class="users-list-body">
+                                <h5>گروه سرگرمی</h5>
+                                <p><strong>مجتبی شاهی: </strong>سلااام!!!</p>
+                                <div class="users-list-action action-toggle">
+                                    <div class="dropdown">
+                                        <a data-toggle="dropdown" href="#">
+                                            <i class="ti-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item">باز</a>
+                                            <a href="#" data-navigation-target="contact-information" class="dropdown-item">پروفایل</a>
+                                            <a href="#" class="dropdown-item">اضافه کردن به بایگانی</a>
+                                            <a href="#" class="dropdown-item">حذف</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div>
+                                <figure class="avatar avatar-state-warning">
+                                    <img src="dist/media/img/women_avatar1.jpg" class="rounded-circle">
+                                </figure>
+                            </div>
+                            <div class="users-list-body">
+                                <h5>جعفر عباسی</h5>
+                                <p>می دانم این پرونده برای شما چقدر مهم است. تو میتوانی به من اعتماد کنی ؛)</p>
+                                <div class="users-list-action action-toggle">
+                                    <div class="dropdown">
+                                        <a data-toggle="dropdown" href="#">
+                                            <i class="ti-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item">باز</a>
+                                            <a href="#" data-navigation-target="contact-information" class="dropdown-item">پروفایل</a>
+                                            <a href="#" class="dropdown-item">اضافه کردن به بایگانی</a>
+                                            <a href="#" class="dropdown-item">حذف</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div>
+                                <figure class="avatar">
+                                    <span class="avatar-title bg-info rounded-circle">M</span>
+                                </figure>
+                            </div>
+                            <div class="users-list-body">
+                                <h5>جعفر عباسی</h5>
+                                <p>اختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <div class="users-list-action action-toggle">
+                                    <div class="dropdown">
+                                        <a data-toggle="dropdown" href="#">
+                                            <i class="ti-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item">باز</a>
+                                            <a href="#" data-navigation-target="contact-information" class="dropdown-item">پروفایل</a>
+                                            <a href="#" class="dropdown-item">اضافه کردن به بایگانی</a>
+                                            <a href="#" class="dropdown-item">حذف</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div>
+                                <figure class="avatar">
+                                    <img src="dist/media/img/man_avatar2.jpg" class="rounded-circle">
+                                </figure>
+                            </div>
+                            <div class="users-list-body">
+                                <h5>طاهر نصیری</h5>
+                                <p>اختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <div class="users-list-action action-toggle">
+                                    <div class="dropdown">
+                                        <a data-toggle="dropdown" href="#">
+                                            <i class="ti-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item">باز</a>
+                                            <a href="#" data-navigation-target="contact-information" class="dropdown-item">پروفایل</a>
+                                            <a href="#" class="dropdown-item">اضافه کردن به بایگانی</a>
+                                            <a href="#" class="dropdown-item">حذف</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ./ Chats sidebar -->
+
+
+        </div>
+        <!-- ./ sidebar group -->
+
+        <!-- chat -->
+        <div class="chat">
+            <div class="chat-header">
+                <div class="chat-header-user">
+                    <figure class="avatar avatar-lg">
+                        <img src="dist/media/img/man_avatar3.jpg" class="rounded-circle">
+                    </figure>
+                    <div>
+                        <h5>جعفر عباسی</h5>
+                        <small class="text-muted">
+                            <i>آنلاین</i>
+                        </small>
+                    </div>
+                </div>
+                <div class="chat-header-action">
+                    <div id="timer" class="DActive">
+                        <div id="seconds"><span>00 : </span>06</div>
+                        <div id="log"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-body"> <!-- .no-message -->
+                <!--
+                <div class="no-message-container">
+                    <i class="fa fa-comments-o"></i>
+                    <p>Select a chat to read messages</p>
+                </div>
+                -->
+                <div class="messages">
+                    <div class="message-item outgoing-message">
+                        <div class="message-content">
+                            سلام ، ماهر! منتظر هستم که پرونده ها را برای من ارسال کنید.
+                        </div>
+                        <div class="message-action">
+                            بعد ظهر 4:30 <i class="ti-double-check"></i>
+                        </div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-content">
+                             متاسفم :( من هرچه سریعتر برای شما ارسال خواهم کرد.
+                        </div>
+                        <div class="message-action">
+                            بعد ظهر 4:30 
+                        </div>
+                    </div>
+                    <div class="message-item outgoing-message">
+                        <div class="message-content">
+                            من منتظرم. متشکرم :)
+                        </div>
+                        <div class="message-action">
+                            بعد ظهر 4:30  <i class="ti-double-check"></i>
+                        </div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-content">
+                            الان فایلها رو میفرستم
+                        </div>
+                        <div class="message-action">
+                           بعد ظهر 4:30 
+                        </div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-content message-file">
+                            <div class="file-icon">
+                                <i class="ti-file"></i>
+                            </div>
+                            <div>
+                                <div>important_documents.pdf <i class="text-muted small">(50KB)</i></div>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a href="#">دانلود</a></li>
+                                    <li class="list-inline-item"><a href="#">مشاهده</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="message-action">
+                            بعد ظهر 4:30 
+                        </div>
+                    </div>
+                    <div class="message-item outgoing-message">
+                        <div class="message-content">
+                            خیلی ممنونم. پس از بررسی این پرونده ها ، نظر خود را برای شما بیان می کنم. اگر مشکلی پیش آمد ، می توانید دوباره آن را ارسال کنید. موفق باشید!
+                        </div>
+                        <div class="message-action">
+                            بعد ظهر 4:30  <i title="پیام ارسال نشد" class="ti-info-alt text-danger"></i>
+                        </div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-content">
+                            نمی توانم صبر کنم
+                        </div>
+                        <div class="message-action">
+                            بعد ظهر 4:30 
+                        </div>
+                    </div>
+                    <div class="message-item outgoing-message">
+                        <div class="message-content">
+                            می دانم این پرونده برای شما چقدر مهم است. تو میتوانی به من اعتماد کنی ؛)
+                        </div>
+                        <div class="message-action">
+                            بعد ظهر 4:30  <i class="ti-double-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <form action="#">
+                    <input type="text" class="form-control" placeholder="نام کاربری گیرنده"
+                           aria-label="نام کاربری گیرنده" aria-describedby="button-addon2">
+                    <div class="form-buttons">
+                        <button class="btn btn-light btn-floating" type="button">
+                            <i class="fa fa-paperclip"></i>
+                        </button>
+                        
+                        <button class="btn btn-primary btn-floating" type="submit">
+                            <i class="fa fa-send"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- ./ chat -->
+
+        <div class="sidebar-group">
+            <div id="contact-information" class="sidebar">
+                <header>
+                    <span>درباره</span>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="btn btn-light sidebar-close">
+                                <i class="ti-close"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="sidebar-body">
+                    <div class="pl-4 pr-4 text-center">
+                        <figure class="avatar avatar-state-danger avatar-xl mb-4">
+                            <img src="dist/media/img/women_avatar5.jpg" class="rounded-circle">
+                        </figure>
+                        <h5 class="text-primary">طاهر نصیری</h5>
+                        <p class="text-muted">آخرین بازدید: دیروز</p>
+                    </div>
+                    <hr>
+                    <div class="pl-4 pr-4">
+                        <h6>درباره</h6>
+                        <p class="text-muted">من عاشق خواندن ، مسافرت و کشف چیزهای جدید هستم. شما باید در زندگی شاد باشید.</p>
+                    </div>
+                    <hr>
+                    <div class="pl-4 pr-4">
+                        <h6>تلفن</h6>
+                        <p class="text-muted">(555) 555 55 55</p>
+                    </div>
+                    <hr>
+                    <div class="pl-4 pr-4">
+                        <h6>رسانه</h6>
+                        <div class="files">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <figure class="avatar avatar-lg">
+                                        <span class="avatar-title bg-warning">
+                                            <i class="fa fa-file-pdf-o"></i>
+                                        </span>
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <figure class="avatar avatar-lg">
+                                            <img src="dist/media/img/women_avatar1.jpg">
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <figure class="avatar avatar-lg">
+                                            <img src="dist/media/img/women_avatar3.jpg">
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <figure class="avatar avatar-lg">
+                                            <img src="dist/media/img/women_avatar4.jpg">
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <figure class="avatar avatar-lg">
+                                        <span class="avatar-title bg-success">
+                                            <i class="fa fa-file-excel-o"></i>
+                                        </span>
+                                        </figure>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <figure class="avatar avatar-lg">
+                                        <span class="avatar-title bg-info">
+                                            <i class="fa fa-file-text-o"></i>
+                                        </span>
+                                        </figure>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="pl-4 pr-4">
+                        <h6>شهر</h6>
+                        <p class="text-muted">آلمان / برلین</p>
+                    </div>
+                    <hr>
+                    <div class="pl-4 pr-4">
+                        <h6>وب سایت</h6>
+                        <p>
+                            <a href="#">www.franshanscombe.com</a>
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="pl-4 pr-4">
+                        <h6>لینک اجتماعی</h6>
+                        <ul class="list-inline social-links">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-dribbble">
+                                    <i class="fa fa-dribbble"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-whatsapp">
+                                    <i class="fa fa-whatsapp"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-google">
+                                    <i class="fa fa-google"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-behance">
+                                    <i class="fa fa-behance"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-sm btn-floating btn-instagram">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="pl-4 pr-4">
+                        <div class="form-group">
+                            <div class="form-item custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch11">
+                                <label class="custom-control-label" for="customSwitch11">بلاک</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-item custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" checked="" id="customSwitch12">
+                                <label class="custom-control-label" for="customSwitch12">سایلنت</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-item custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch13">
+                                <label class="custom-control-label" for="customSwitch13">دریافت اعلان</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- ./ content -->
+
+</div>
+<!-- ./ layout -->
+
+<!-- JQuery -->
+<script src="vendor/jquery-3.4.1.min.js"></script>
+
+<!-- Popper.js -->
+<script src="vendor/popper.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="vendor/bootstrap/bootstrap.min.js"></script>
+
+<!-- Nicescroll -->
+<script src="vendor/jquery.nicescroll.min.js"></script>
+
+<!-- Soho -->
+<script src="dist/js/soho.min.js"></script>
+
+<!-- Examples -->
+<script src="dist/js/examples.js"></script>
+</body>
+
+</html>
